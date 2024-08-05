@@ -63,3 +63,27 @@ CREATE TABLE aktiviteter (
     aktivitet TEXT,
     FOREIGN KEY (organisasjonsnummer) REFERENCES enheter(organisasjonsnummer)
 );
+
+
+CREATE TABLE organisasjoner (
+    organisasjonsnummer VARCHAR(20) PRIMARY KEY,
+    navn VARCHAR(255),
+    organisasjonsform_kode VARCHAR(10),
+    registreringsdato DATE,
+    stiftelsesdato DATE,
+    institusjonell_sektorkode_kode VARCHAR(10),
+    maalform VARCHAR(10)
+);
+
+
+-- Create table for storing users with reference to organizations
+CREATE TABLE brukere (
+    bruker_id SERIAL PRIMARY KEY,
+    organisasjonsnummer VARCHAR(20),
+    organisasjonsnavn VARCHAR(200),
+    fornavn VARCHAR(100),
+    etternavn VARCHAR(100),
+    epost VARCHAR(255),
+    telefonnummer VARCHAR(20)
+);
+
