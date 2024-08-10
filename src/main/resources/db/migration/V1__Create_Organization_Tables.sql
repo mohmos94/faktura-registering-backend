@@ -87,3 +87,33 @@ CREATE TABLE brukere (
     telefonnummer VARCHAR(20)
 );
 
+
+-- Opprettelse av fakturaer-tabellen
+CREATE TABLE fakturaer (
+    faktura_id SERIAL PRIMARY KEY,
+    fakturanummer VARCHAR(50) NOT NULL,
+    fakturadato DATE NOT NULL,
+    forfallsdato DATE NOT NULL,
+    sum_eks_mva DECIMAL(10, 2) NOT NULL,
+    mva_belop DECIMAL(10, 2) NOT NULL,
+    total_belop DECIMAL(10, 2) NOT NULL,
+    avsender_organisasjonsnummer VARCHAR(20) NOT NULL,
+    mottaker_organisasjonsnummer VARCHAR(20) NOT NULL,
+    kontonummer VARCHAR(50),
+    kid_nummer VARCHAR(50),
+    kundenavn VARCHAR(255),
+    postadresse VARCHAR(255),
+    postnummer_sted VARCHAR(255)
+);
+
+-- Opprettelse av faktura_linjer-tabellen
+CREATE TABLE faktura_linjer (
+    linje_id SERIAL PRIMARY KEY,
+    fakturanummer VARCHAR(50) NOT NULL,
+    varebeskrivelse TEXT NOT NULL,
+    antall INT NOT NULL,
+    pris_per_enhet DECIMAL(10, 2) NOT NULL,
+    mva_sats DECIMAL(5, 2) NOT NULL
+);
+
+

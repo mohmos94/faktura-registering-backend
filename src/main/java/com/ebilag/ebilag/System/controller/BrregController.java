@@ -3,6 +3,7 @@ package com.ebilag.ebilag.System.controller;
 
 import com.ebilag.ebilag.System.model.brreg.Enhet;
 import com.ebilag.ebilag.System.service.BrregService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -17,14 +18,12 @@ public class BrregController {
     }
 
     @GetMapping("/{orgnr}")
-    public Enhet getCompanyByOrgNumber(@PathVariable String orgnr) {
-        return brregService.getCompanyByOrgNumber(orgnr);
+    public ResponseEntity<Enhet> getCompanyByOrgNumber(
+            @PathVariable String orgnr) {
+        return ResponseEntity.ok(brregService
+                .getCompanyByOrgNumber
+                        (orgnr.replaceAll("\\s", "")));
     }
 
-    @GetMapping
-    public Enhet getAllCompanies(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
-        return brregService.getAllCompanies(page, size);
-    }
+
 }

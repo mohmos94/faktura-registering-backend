@@ -14,10 +14,8 @@ public class BrregService {
     }
 
     public Enhet getCompanyByOrgNumber(String orgnr) {
+
         return brregRestTemplate.getCompanyByOrgNumber(orgnr);
     }
 
-    public Enhet getAllCompanies(int page, int size) {
-        return brregRestTemplate.getAllCompanies(page, size);
-    }
 }
