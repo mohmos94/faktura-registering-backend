@@ -26,9 +26,9 @@ public class Faktura {
     private String kundenavn;
     private String postadresse;
     private String postnummerSted;
+    private String notat;
     private List<FakturaLinje> fakturaLinjer;
 
-    // Getters and Setters
 
     public String getFakturanummer() {
         return fakturanummer;
@@ -134,6 +134,14 @@ public class Faktura {
         this.postnummerSted = postnummerSted;
     }
 
+    public String getNotat() {
+        return notat;
+    }
+
+    public void setNotat(String notat) {
+        this.notat = notat;
+    }
+
     public List<FakturaLinje> getFakturaLinjer() {
         return fakturaLinjer;
     }
@@ -141,4 +149,6 @@ public class Faktura {
     public void setFakturaLinjer(List<FakturaLinje> fakturaLinjer) {
         this.fakturaLinjer = fakturaLinjer;
     }
+
+
 }

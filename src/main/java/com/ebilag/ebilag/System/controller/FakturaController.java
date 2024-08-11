@@ -33,9 +33,28 @@ public class FakturaController {
     }
 
 
+    @GetMapping("/org/fakturanr/{fakturanr}")
+    public ResponseEntity<Faktura> hentFakturaerByFaktura(
+            @PathVariable String fakturanr) {
+        Faktura fakturaer = fakturaService.henteFakturaByFakturaNr(fakturanr);
+        return ResponseEntity.ok(fakturaer);
+    }
+
+
     @GetMapping("/all")
     public ResponseEntity<List<Faktura>> henteALleFakturaer() {
-        List<Faktura> fakturaList = fakturaService.henteAlleFakturaer();
+        List<Faktura> fakturaList = fakturaService
+                .henteAlleFakturaer();
         return ResponseEntity.ok(fakturaList);
+    }
+
+    @PutMapping("/oppdater/fakturanr/{fakturanr}/notat")
+    public ResponseEntity<Boolean> oppdaterNotatFelt(
+            @PathVariable String fakturanr,
+            @RequestBody String notat
+    ) {
+        return ResponseEntity.ok(
+                fakturaService
+                        .oppdaterFakturaNotat(fakturanr, notat));
     }
 }

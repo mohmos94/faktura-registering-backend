@@ -1,7 +1,7 @@
 package com.ebilag.ebilag.System.service;
 
+import com.ebilag.ebilag.System.model.brreg.Organisasjon;
 import com.ebilag.ebilag.System.model.brukere.Bruker;
-import com.ebilag.ebilag.System.model.brukere.Organisasjon;
 import com.ebilag.ebilag.System.repository.BrukerRepository;
 import com.ebilag.ebilag.System.repository.OrganisasjonRepository;
 import org.springframework.stereotype.Service;

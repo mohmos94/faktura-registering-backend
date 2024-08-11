@@ -27,4 +27,18 @@ public class FakturaService {
 
         return fakturaRepository.henteAlleFakturaer();
     }
+
+    public boolean oppdaterFakturaNotat(String fakturanummer, String notat) {
+        Faktura faktura = fakturaRepository.henteFakturaByFakturanr(fakturanummer);
+        if (faktura != null) {
+            return fakturaRepository.oppdaterFakturaNotat(faktura.getFakturanummer(), notat);
+
+        } else {
+            throw new RuntimeException("feil ved henting av fakturaen");
+        }
+    }
+
+    public Faktura henteFakturaByFakturaNr(String fakturanr) {
+        return fakturaRepository.henteFakturaByFakturanr(fakturanr);
+    }
 }

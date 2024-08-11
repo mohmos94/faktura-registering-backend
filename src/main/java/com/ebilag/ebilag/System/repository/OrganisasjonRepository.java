@@ -1,6 +1,6 @@
 package com.ebilag.ebilag.System.repository;
 
-import com.ebilag.ebilag.System.model.brukere.Organisasjon;
+import com.ebilag.ebilag.System.model.brreg.Organisasjon;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -20,7 +20,7 @@ public class OrganisasjonRepository {
     }
 
     // Create a new organisasjon
-    public void createOrganisasjon(Organisasjon organisasjon) {
+    public Organisasjon createOrganisasjon(Organisasjon organisasjon) {
         String sql = """
                 INSERT INTO organisasjoner (organisasjonsnummer, navn, organisasjonsform_kode, registreringsdato, stiftelsesdato, institusjonell_sektorkode_kode, maalform)
                 VALUES (:organisasjonsnummer, :navn, :organisasjonsform_kode, :registreringsdato, :stiftelsesdato, :institusjonell_sektorkode_kode, :maalform)
@@ -38,6 +38,7 @@ public class OrganisasjonRepository {
 
         try {
             namedParameterJdbcTemplate.update(sql, params);
+            return organisasjon;
         } catch (DataAccessException ex) {
             throw new RuntimeException("Failed to create organisasjon with nummer " + organisasjon.organisasjonsnummer(), ex);
         }
@@ -130,6 +131,6 @@ public class OrganisasjonRepository {
         String institusjonellSektorkodeKode = rs.getString("institusjonell_sektorkode_kode");
         String maalform = rs.getString("maalform");
 
-        return new Organisasjon(organisasjonsnummer, navn, organisasjonsformKode, registreringsdato, stiftelsesdato, institusjonellSektorkodeKode, maalform);
+        return new Organisasjon(organisasjonsnummer, navn, organisasjonsformKode, registreringsdato.toString(), stiftelsesdato.toString(), institusjonellSektorkodeKode, maalform);
     };
 }

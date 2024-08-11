@@ -22,6 +22,7 @@ public class FakturaLinjeRepository {
                 VALUES (:fakturanummer, :varebeskrivelse, :antall, :prisPerEnhet, :mvaSats)
                 """;
 
+
         MapSqlParameterSource params = new MapSqlParameterSource()
                 .addValue("fakturanummer", linje.getFakturanummer())
                 .addValue("varebeskrivelse", linje.getVarebeskrivelse())

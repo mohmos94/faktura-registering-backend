@@ -103,7 +103,8 @@ CREATE TABLE fakturaer (
     kid_nummer VARCHAR(50),
     kundenavn VARCHAR(255),
     postadresse VARCHAR(255),
-    postnummer_sted VARCHAR(255)
+    postnummer_sted VARCHAR(255),
+    notat TEXT
 );
 
 -- Opprettelse av faktura_linjer-tabellen

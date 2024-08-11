@@ -1,6 +1,6 @@
 package com.ebilag.ebilag.System.service;
 
-import com.ebilag.ebilag.System.model.brukere.Organisasjon;
+import com.ebilag.ebilag.System.model.brreg.Organisasjon;
 import com.ebilag.ebilag.System.repository.OrganisasjonRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +16,8 @@ public class OrganisasjonService {
     }
 
     // Create a new organisasjon
-    public void createOrganisasjon(Organisasjon organisasjon) {
-        // Perform any business logic or validation here
-        organisasjonRepository.createOrganisasjon(organisasjon);
+    public Organisasjon createOrganisasjon(Organisasjon organisasjon) {
+        return organisasjonRepository.createOrganisasjon(organisasjon);
     }
 
     // Get an organisasjon by organisasjonsnummer

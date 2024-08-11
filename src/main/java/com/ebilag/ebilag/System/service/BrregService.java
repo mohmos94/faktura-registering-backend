@@ -18,4 +18,5 @@ public class BrregService {
         return brregRestTemplate.getCompanyByOrgNumber(orgnr);
     }
 
+
 }

@@ -1,6 +1,6 @@
 package com.ebilag.ebilag.System.controller;
 
-import com.ebilag.ebilag.System.model.brukere.Organisasjon;
+import com.ebilag.ebilag.System.model.brreg.Organisasjon;
 import com.ebilag.ebilag.System.service.OrganisasjonService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

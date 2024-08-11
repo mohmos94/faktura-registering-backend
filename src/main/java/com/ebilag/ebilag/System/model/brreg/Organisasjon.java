@@ -1,13 +1,11 @@
-package com.ebilag.ebilag.System.model.brukere;
-
-import java.time.LocalDate;
+package com.ebilag.ebilag.System.model.brreg;
 
 public record Organisasjon(
         String organisasjonsnummer,
         String navn,
         String organisasjonsformKode,
-        LocalDate registreringsdato,
-        LocalDate stiftelsesdato,
+        String registreringsdato,
+        String stiftelsesdato,
         String institusjonellSektorkodeKode,
         String maalform
 ) {
